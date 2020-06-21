@@ -14,6 +14,10 @@
     <dependencies>
         <dependency>
             <groupId>com.lee</groupId>
+            <artifactId>async-event-common</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.lee</groupId>
             <artifactId>async-event-core</artifactId>
         </dependency>
         <dependency>

@@ -121,10 +121,6 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.lee</groupId>
-            <artifactId>async-event-common</artifactId>
-        </dependency>
-        <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
             <version>1.2.58</version>
@@ -132,7 +128,7 @@
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>24.1.1</version>
+            <version>29.0-jre</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>

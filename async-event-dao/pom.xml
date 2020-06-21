@@ -13,6 +13,10 @@
 
     <dependencies>
         <dependency>
+            <groupId>com.lee</groupId>
+            <artifactId>async-event-common</artifactId>
+        </dependency>
+        <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
         </dependency>
