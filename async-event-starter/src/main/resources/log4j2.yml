@@ -8,8 +8,8 @@ Configuration:
         Pattern: "%clr{%d{yyyy-MM-dd HH:mm:ss.SSS}}{faint} %clr{%5p} %clr{---}{faint} %clr{[%15.15t]}{faint} %clr{%-40c}{cyan} %clr{:}{faint} %m%n%xwEx"
     RollingFile:
       - name: RollingFile
-        fileName: logs/async-event.log
-        filePattern: "logs/async-event-%d{yyyy-MM-dd}.log"
+        fileName: ~/logs/async-event.log
+        filePattern: "~/logs/async-event-%d{yyyy-MM-dd}.log"
         PatternLayout:
           Pattern: "%d{yyyy-MM-dd HH:mm:ss.SSS} %5p --- [%t] %-40.40c{1.} : %m%n%xwEx"
         Policies:
