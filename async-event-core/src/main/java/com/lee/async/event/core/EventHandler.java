@@ -6,9 +6,9 @@ import java.util.List;
 
 import com.alibaba.fastjson.JSON;
 
+import com.lee.async.event.common.logger.AsyncEventLogger;
 import com.lee.async.event.core.aspect.AsyncEventAspect;
-import com.lee.async.event.core.demo.DemoService.Param;
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
@@ -19,8 +19,9 @@ import org.springframework.stereotype.Component;
  * @date 2020/06/02
  */
 @Component
-@Slf4j
 public class EventHandler implements ApplicationContextAware {
+
+    private static final Logger log = AsyncEventLogger.getLogger();
 
     private ApplicationContext applicationContext;
 

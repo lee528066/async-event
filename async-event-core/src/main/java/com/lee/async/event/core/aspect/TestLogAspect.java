@@ -1,11 +1,12 @@
 package com.lee.async.event.core.aspect;
 
+import com.lee.async.event.common.logger.AsyncEventLogger;
 import com.lee.async.event.core.anno.AsyncEvent;
-import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
+import org.slf4j.Logger;
 import org.springframework.stereotype.Component;
 
 /**
@@ -14,8 +15,9 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @Aspect
-@Slf4j
 public class TestLogAspect {
+
+    private static final Logger log = AsyncEventLogger.getLogger();
 
     @Pointcut("@annotation(com.lee.async.event.core.anno.TestLog)")
     public void TestLogAnnotation(){

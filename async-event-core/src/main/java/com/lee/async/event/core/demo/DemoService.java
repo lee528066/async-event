@@ -3,8 +3,6 @@ package com.lee.async.event.core.demo;
 import javax.annotation.Resource;
 
 import com.lee.async.event.core.anno.AsyncEvent;
-import com.lee.async.event.core.anno.TestLog;
-import lombok.Data;
 import org.springframework.stereotype.Service;
 
 /**
@@ -23,9 +21,24 @@ public class DemoService {
         demoService2.sayHello2(param);
     }
 
-    @Data
     public static class Param {
         private long id;
         private String name;
+
+        public long getId() {
+            return id;
+        }
+
+        public void setId(long id) {
+            this.id = id;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
     }
 }

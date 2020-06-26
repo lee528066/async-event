@@ -1,4 +1,4 @@
-package com.lee.async.event.dao.generator;
+package com.lee.async.event.generator;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -174,7 +174,7 @@ public class MybatisGenerator {
         strategy.setNaming(NamingStrategy.underline_to_camel);
         strategy.setColumnNaming(NamingStrategy.underline_to_camel);
         //strategy.setSuperEntityClass("你自己的父类实体,没有就不用设置!");
-        strategy.setEntityLombokModel(true);
+        strategy.setEntityLombokModel(false);
         strategy.setRestControllerStyle(false);
         // 公共父类
         //strategy.setSuperControllerClass("你自己的父类控制器,没有就不用设置!");

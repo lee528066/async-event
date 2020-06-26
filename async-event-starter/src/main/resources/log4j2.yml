@@ -7,7 +7,7 @@ Configuration:
       PatternLayout:
         Pattern: "%clr{%d{yyyy-MM-dd HH:mm:ss.SSS}}{faint} %clr{%5p} %clr{---}{faint} %clr{[%15.15t]}{faint} %clr{%-40c}{cyan} %clr{:}{faint} %m%n%xwEx"
     RollingFile:
-      - name: RollingFile
+      - name: AsyncEventLogger
         fileName: ~/logs/async-event.log
         filePattern: "~/logs/async-event-%d{yyyy-MM-dd}.log"
         PatternLayout:
@@ -21,7 +21,7 @@ Configuration:
     Root:
       AppenderRef:
         - ref: Console
-        - ref: RollingFile
+        - ref: AsyncEventLogger
     logger:
       - name: org.springframework
         level: info

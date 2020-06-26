@@ -5,9 +5,6 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import java.util.Date;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.experimental.Accessors;
 
 /**
  * <p>
@@ -15,11 +12,8 @@ import lombok.experimental.Accessors;
  * </p>
  *
  * @author liwei
- * @since 2020-06-20
+ * @since 2020-06-26
  */
-@Data
-@EqualsAndHashCode(callSuper = false)
-@Accessors(chain = true)
 @TableName("event")
 public class EventDO implements Serializable {
 
@@ -79,6 +73,90 @@ public class EventDO implements Serializable {
      */
     private String paramPairs;
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+    public String getUniqueKey() {
+        return uniqueKey;
+    }
+
+    public void setUniqueKey(String uniqueKey) {
+        this.uniqueKey = uniqueKey;
+    }
+    public String getBeanClass() {
+        return beanClass;
+    }
+
+    public void setBeanClass(String beanClass) {
+        this.beanClass = beanClass;
+    }
+    public String getBillContent() {
+        return billContent;
+    }
+
+    public void setBillContent(String billContent) {
+        this.billContent = billContent;
+    }
+    public String getMethodName() {
+        return methodName;
+    }
+
+    public void setMethodName(String methodName) {
+        this.methodName = methodName;
+    }
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+    public Date getModifyTime() {
+        return modifyTime;
+    }
+
+    public void setModifyTime(Date modifyTime) {
+        this.modifyTime = modifyTime;
+    }
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+    public String getErrorReason() {
+        return errorReason;
+    }
+
+    public void setErrorReason(String errorReason) {
+        this.errorReason = errorReason;
+    }
+    public Integer getFailCount() {
+        return failCount;
+    }
+
+    public void setFailCount(Integer failCount) {
+        this.failCount = failCount;
+    }
+    public String getParamPairs() {
+        return paramPairs;
+    }
+
+    public void setParamPairs(String paramPairs) {
+        this.paramPairs = paramPairs;
+    }
 
     public static final String ID = "id";
 
@@ -104,4 +182,21 @@ public class EventDO implements Serializable {
 
     public static final String PARAM_PAIRS = "param_pairs";
 
+    @Override
+    public String toString() {
+        return "EventDO{" +
+            "id=" + id +
+            ", name=" + name +
+            ", uniqueKey=" + uniqueKey +
+            ", beanClass=" + beanClass +
+            ", billContent=" + billContent +
+            ", methodName=" + methodName +
+            ", createTime=" + createTime +
+            ", modifyTime=" + modifyTime +
+            ", status=" + status +
+            ", errorReason=" + errorReason +
+            ", failCount=" + failCount +
+            ", paramPairs=" + paramPairs +
+        "}";
+    }
 }

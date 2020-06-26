@@ -4,12 +4,13 @@ import java.util.Objects;
 
 import javax.annotation.Resource;
 
+import com.lee.async.event.common.logger.AsyncEventLogger;
 import com.lee.async.event.core.EventSchema;
 import com.lee.async.event.core.producer.AsyncEventProducer;
-import lombok.extern.slf4j.Slf4j;
 import org.apache.rocketmq.client.producer.SendResult;
 import org.apache.rocketmq.client.producer.SendStatus;
 import org.apache.rocketmq.spring.core.RocketMQTemplate;
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.util.Assert;
@@ -19,8 +20,9 @@ import org.springframework.util.Assert;
  * @date 2020/06/17
  */
 @Component
-@Slf4j
 public class AsyncEventProducerImpl implements AsyncEventProducer {
+
+    private static final Logger log = AsyncEventLogger.getLogger();
 
     @Resource(name = "baseProducer")
     private RocketMQTemplate baseProducer;

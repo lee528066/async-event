@@ -11,6 +11,7 @@ import com.alibaba.fastjson.JSON;
 
 import com.google.common.collect.Lists;
 import com.lee.async.event.common.enums.EventStatus;
+import com.lee.async.event.common.logger.AsyncEventLogger;
 import com.lee.async.event.core.EventHandler;
 import com.lee.async.event.core.EventSchema;
 import com.lee.async.event.core.ParamPair;
@@ -19,7 +20,6 @@ import com.lee.async.event.core.convertor.EventConvertor;
 import com.lee.async.event.core.producer.AsyncEventProducer;
 import com.lee.async.event.core.service.EventService;
 import com.lee.async.event.dao.entity.EventDO;
-import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -27,6 +27,7 @@ import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
+import org.slf4j.Logger;
 import org.springframework.aop.framework.AdvisedSupport;
 import org.springframework.aop.framework.AopProxy;
 import org.springframework.aop.support.AopUtils;
@@ -44,8 +45,9 @@ import org.springframework.util.Assert;
  */
 @Component
 @Aspect
-@Slf4j
 public class AsyncEventAspect {
+
+    private static final Logger log = AsyncEventLogger.getLogger();
 
     public static ThreadLocal<String> selfTag = new ThreadLocal<>();
 
