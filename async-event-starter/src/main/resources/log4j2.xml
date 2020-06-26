@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT" follow="true">
+            <PatternLayout>
+                <pattern>%d %p %C{1.} [%t] %m%n</pattern>
+            </PatternLayout>
+        </Console>
+        <!-- 按日期每天生成log文件 -->
+        <RollingFile name="AsyncEventLogger" fileName="logs/async-event.log"
+                     filePattern="logs/spider-%d{yyyy-MM-dd}-%i.log">
+            <PatternLayout pattern="%d %p %C{1.} [%t] %m%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1"/>
+            </Policies>
+            <DefaultRolloverStrategy max="1">
+                <Delete basePath="logs" maxDepth="1">
+                    <IfFileName glob="async-event-*.log"/>
+                    <IfLastModified age="1d"/>
+                </Delete>
+            </DefaultRolloverStrategy>
+            <!-- log文件打印日志级别信息 -->
+            <Filters>
+                <ThresholdFilter level="debug" onMatch="ACCEPT" onMismatch="DENY" />
+            </Filters>
+        </RollingFile>
+    </Appenders>
+    <Loggers>
+        <logger name="com.lee.dao">
+            <level>DEBUG</level>
+        </logger>
+        <!-- 输出info级别信息 -->
+        <Root level="info">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="AsyncEventLogger"/>
+        </Root>
+    </Loggers>
+</Configuration>
