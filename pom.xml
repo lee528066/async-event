@@ -42,7 +42,11 @@
                 <artifactId>async-event-dao</artifactId>
                 <version>${project.version}</version>
             </dependency>
-
+            <dependency>
+                <groupId>com.lee</groupId>
+                <artifactId>async-event-dao</artifactId>
+                <version>${project.version}</version>
+            </dependency>
             <dependency>
                 <groupId>com.lee</groupId>
                 <artifactId>async-event-common</artifactId>
