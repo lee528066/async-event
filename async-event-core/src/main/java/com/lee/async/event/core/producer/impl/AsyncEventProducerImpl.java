@@ -22,24 +22,24 @@ import org.springframework.util.Assert;
 @Slf4j
 public class AsyncEventProducerImpl implements AsyncEventProducer {
 
-    @Resource(name = "baseProducer")
-    private RocketMQTemplate baseProducer;
-
-    @Value("${aysnc.event.topic}")
-    private String topic;
+    //@Resource(name = "baseProducer")
+    //private RocketMQTemplate baseProducer;
+    //
+    //@Value("${aysnc.event.topic}")
+    //private String topic;
 
     public boolean sendEvent(EventSchema eventSchema) {
-        Assert.notNull(eventSchema, "eventSchema为空");
-        try {
-            SendResult result = baseProducer.syncSend(topic, eventSchema);
-            log.info(String.format("event[%s]发送消息结果：%s", eventSchema.getUniqueKey(), result));
-            if (Objects.nonNull(result) && result.getSendStatus() == SendStatus.SEND_OK) {
-                return true;
-            }
-        } catch (Exception e) {
-            log.error(String.format("event[%s]发送消息发生异常:", eventSchema.getUniqueKey()), e);
-            throw e;
-        }
+        //Assert.notNull(eventSchema, "eventSchema为空");
+        //try {
+        //    SendResult result = baseProducer.syncSend(topic, eventSchema);
+        //    log.info(String.format("event[%s]发送消息结果：%s", eventSchema.getUniqueKey(), result));
+        //    if (Objects.nonNull(result) && result.getSendStatus() == SendStatus.SEND_OK) {
+        //        return true;
+        //    }
+        //} catch (Exception e) {
+        //    log.error(String.format("event[%s]发送消息发生异常:", eventSchema.getUniqueKey()), e);
+        //    throw e;
+        //}
         return false;
     }
 }

@@ -4,6 +4,7 @@ import javax.annotation.Resource;
 
 import com.lee.async.event.core.demo.DemoService;
 import com.lee.async.event.core.demo.DemoService.Param;
+import com.lee.async.event.core.service.impl.TransactionOutService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,6 +19,8 @@ public class TestController {
 
     @Resource
     private DemoService demoService;
+    @Resource
+    private TransactionOutService transactionOutService;
 
     @GetMapping("/demo")
     public String test(long id, String name){
@@ -26,5 +29,11 @@ public class TestController {
         param.setName(name);
         demoService.sayHello(param);
         return "success";
+    }
+
+
+    @GetMapping("/testTransaction")
+    public int testTransaction(int id){
+        return transactionOutService.entryTransaction(id);
     }
 }
